@@ -1,0 +1,7 @@
+{
+  "CYP2C19": {
+    "Poor Metabolizer": "Use alternative antiplatelet therapy",
+    "Intermediate Metabolizer": "Consider alternative therapy",
+    "Normal Metabolizer": "Standard dosing recommended"
+  }
+}

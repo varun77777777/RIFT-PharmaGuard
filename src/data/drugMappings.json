@@ -1,0 +1,12 @@
+{
+  "CYP2C19": {
+    "Poor Metabolizer": "High Clopidogrel Risk",
+    "Intermediate Metabolizer": "Moderate Risk",
+    "Normal Metabolizer": "Standard Dose"
+  },
+  "CYP2D6": {
+    "Poor Metabolizer": "High Codeine Toxicity Risk",
+    "Intermediate Metabolizer": "Dose Adjustment",
+    "Normal Metabolizer": "Standard Dose"
+  }
+}

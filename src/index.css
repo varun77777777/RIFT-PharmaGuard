@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  PharmaGuard Clinical Design System
+  Professional medical/clinical aesthetic: clean whites, medical blues, slate grays.
+  All colors MUST be HSL.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    /* Core surfaces */
+    --background: 210 25% 97%;
+    --foreground: 215 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 30% 12%;
+
+    /* Medical blue primary */
+    --primary: 213 90% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Slate secondary */
+    --secondary: 213 20% 94%;
+    --secondary-foreground: 213 40% 25%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 187 72% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 78% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 213 20% 88%;
+    --input: 213 20% 88%;
+    --ring: 213 90% 28%;
+
+    --radius: 0.625rem;
+
+    /* Sidebar */
+    --sidebar-background: 213 35% 13%;
+    --sidebar-foreground: 210 25% 90%;
+    --sidebar-primary: 187 72% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 213 30% 20%;
+    --sidebar-accent-foreground: 210 25% 90%;
+    --sidebar-border: 213 25% 20%;
+    --sidebar-ring: 187 72% 38%;
+
+    /* Clinical Risk Colors */
+    --risk-safe: 142 65% 38%;
+    --risk-safe-bg: 142 55% 95%;
+    --risk-safe-foreground: 142 65% 20%;
+
+    --risk-adjust: 43 92% 48%;
+    --risk-adjust-bg: 43 92% 95%;
+    --risk-adjust-foreground: 43 80% 22%;
+
+    --risk-toxic: 0 78% 55%;
+    --risk-toxic-bg: 0 78% 96%;
+    --risk-toxic-foreground: 0 78% 28%;
+
+    --risk-critical: 0 79% 38%;
+    --risk-critical-bg: 0 79% 95%;
+    --risk-critical-foreground: 0 79% 20%;
+
+    --risk-unknown: 215 16% 55%;
+    --risk-unknown-bg: 215 16% 93%;
+    --risk-unknown-foreground: 215 16% 30%;
+
+    /* Clinical accent teal */
+    --teal: 187 72% 38%;
+    --teal-foreground: 0 0% 100%;
+
+    /* DNA strand gradient */
+    --gradient-clinical: linear-gradient(135deg, hsl(213, 90%, 28%), hsl(187, 72%, 38%));
+    --gradient-hero: linear-gradient(160deg, hsl(215, 35%, 10%) 0%, hsl(213, 55%, 20%) 50%, hsl(187, 60%, 25%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 100%) 0%, hsl(213, 25%, 98%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px hsl(213 30% 15% / 0.08), 0 1px 2px hsl(213 30% 15% / 0.04);
+    --shadow-md: 0 4px 12px hsl(213 30% 15% / 0.10), 0 2px 4px hsl(213 30% 15% / 0.06);
+    --shadow-lg: 0 10px 30px hsl(213 30% 15% / 0.12), 0 4px 8px hsl(213 30% 15% / 0.06);
+    --shadow-risk-safe: 0 4px 20px hsl(142 65% 38% / 0.20);
+    --shadow-risk-toxic: 0 4px 20px hsl(0 78% 55% / 0.20);
+    --shadow-risk-adjust: 0 4px 20px hsl(43 92% 48% / 0.20);
+    --shadow-primary: 0 4px 20px hsl(213 90% 28% / 0.25);
+  }
+
+  .dark {
+    --background: 215 35% 8%;
+    --foreground: 210 25% 95%;
+    --card: 215 30% 11%;
+    --card-foreground: 210 25% 95%;
+    --popover: 215 30% 11%;
+    --popover-foreground: 210 25% 95%;
+    --primary: 213 90% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 213 25% 18%;
+    --secondary-foreground: 210 25% 85%;
+    --muted: 213 25% 16%;
+    --muted-foreground: 215 16% 60%;
+    --accent: 187 72% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 78% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 213 25% 20%;
+    --input: 213 25% 20%;
+    --ring: 213 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+}
+
+@layer components {
+  /* Clinical card style */
+  .clinical-card {
+    @apply bg-card rounded-xl border border-border;
+    box-shadow: var(--shadow-md);
+    background: var(--gradient-card);
+  }
+
+  /* Risk badge base */
+  .risk-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase;
+  }
+
+  /* Severity indicator dot */
+  .severity-dot {
+    @apply w-2 h-2 rounded-full flex-shrink-0;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  /* Monospaced gene label */
+  .gene-label {
+    @apply font-mono text-xs font-medium px-2 py-0.5 rounded-md;
+    background: hsl(var(--primary) / 0.08);
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+
+  /* RSID chip */
+  .rsid-chip {
+    @apply font-mono text-xs px-2 py-0.5 rounded;
+    background: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* Upload drop zone */
+  .drop-zone {
+    @apply border-2 border-dashed rounded-2xl transition-all duration-200 cursor-pointer;
+    border-color: hsl(var(--border));
+  }
+
+  .drop-zone:hover, .drop-zone.drag-active {
+    border-color: hsl(var(--primary));
+    background: hsl(var(--primary) / 0.03);
+  }
+
+  /* Confidence bar */
+  .confidence-track {
+    @apply h-1.5 rounded-full overflow-hidden;
+    background: hsl(var(--muted));
+  }
+
+  .confidence-fill {
+    @apply h-full rounded-full transition-all duration-700;
+    background: var(--gradient-clinical);
+  }
+}
+
+@layer utilities {
+  /* Gradient text */
+  .text-gradient-clinical {
+    background: var(--gradient-clinical);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: hsl(var(--card) / 0.85);
+  }
+}
+
+/* Animations */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(400%); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease both;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--card)) 50%, hsl(var(--muted)) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Stagger delay utilities */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
